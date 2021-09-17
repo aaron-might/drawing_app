@@ -21,6 +21,7 @@ canvas {
 .toolbox {
     background-color: rebeccapurple;
     border:2px solid rebeccapurple; 
+    display: flex;
     padding: 1rem;
     width: 804px;
 }
@@ -33,6 +34,7 @@ canvas {
     justify-content: center;
     font-size: 2rem;
     padding:0.25rem;
+    margin:0.25rem;
     height: 50px;
     width: 50px;
 }
