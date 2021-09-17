@@ -3,6 +3,7 @@ const increaseBtn = document.getElementById('increase');
 const decreaseBtn = document.getElementById('decrease');
 const sizeEl = document.getElementById('size');
 const colorEl = document.getElementById('color');
+const clearEl = document.getElementById('clear');
 
 const ctx = canvas.getContext('2d');
 
@@ -28,7 +29,7 @@ canvas.addEventListener('mousemove', (e) => {
     if(isPressed){    
         const x2 = e.offsetX;
         const y2 = e.offsetY;
-        
+        drawCircle(x2, y2);
         drawLine(x, y, x2, y2);
         x = x2; 
         y = y2;
@@ -43,13 +44,14 @@ function drawCircle(x,y) {
     ctx.fill();
     ctx.fillStyle = color;
 }
-drawLine(100,100, 200, 200)
+// drawLine(100,100, 200, 200)
 
 function drawLine (x1, y1, x2, y2) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.strokeStyle = color;
+    ctx.lineWidth =size;
     ctx.stroke();
   
 }
@@ -74,16 +76,11 @@ decreaseBtn.addEventListener("click",() =>{
 colorEl.addEventListener("change",(e) =>{
     color = e.target.value;
 });
+clearEl.addEventListener("click",(e) =>{
+    ctx.clearRect (0,0, canvas.width, canvas.height);
+});
+
 
 function updateSizeOnScreen() {
     sizeEl.innerText = size
 }
-// drawCircle(50, 50);
-
-// function draw (){
-//     ctx.clearRect(0, 0, canvas.width, canvas.height);
-   
-//     drawCircle(x, 50);
-//     requestAnimationFrame(draw);
-// }
-// draw();
